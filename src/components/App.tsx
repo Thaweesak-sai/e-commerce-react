@@ -1,6 +1,5 @@
 import { EditOutlined, EllipsisOutlined } from '@ant-design/icons';
-import Icon from '@ant-design/icons/lib/components/Icon';
-import { Avatar, Badge, Card, Col, Row } from 'antd';
+import { Card, Col, Row } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import CSS from 'csstype';
 import React from 'react';
