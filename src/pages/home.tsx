@@ -1,7 +1,7 @@
-import React, { ReactElement } from "react";
-import App from "../components/App";
+import React from 'react';
+import App from '../components/App';
 
-const Home: React.FC = (): ReactElement => {
+const Home: React.FC = () => {
   return <App />;
 };
 

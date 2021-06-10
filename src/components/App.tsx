@@ -1,10 +1,11 @@
-import React, { ReactElement } from "react";
-import "../App.css";
+import { Card } from 'antd';
+import React from 'react';
+import '../App.css';
 
-const App: React.FC = (): ReactElement => {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">Hello world!</header>
+      <Card title="Listing"></Card>
     </div>
   );
 };
