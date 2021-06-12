@@ -1,19 +1,21 @@
 import { Row } from 'antd';
-import CSS from 'csstype';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import '../App.css';
-import { DUMMY_ITEM_LIST } from '../repository/ItemList';
+import { Store } from '../store';
 import ListingCard from './ListingCard';
 
 const App: React.FC = () => {
-  const itemList = DUMMY_ITEM_LIST.map((item) => (
+  const selected = useSelector((store: Store) => store.product.productList);
+  const itemList = selected.map((item) => (
     <ListingCard
-      key={item.id}
-      id={item.id}
-      itemName={item.itemName}
-      description={item.description}
-      imgURL={item.imgURL}
-      price={item.price}
+      key={item.product.id}
+      id={item.product.id}
+      itemName={item.product.itemName}
+      description={item.product.description}
+      imgURL={item.product.imgURL}
+      price={item.product.price}
+      quantity = {item.quantity}
     ></ListingCard>
   ));
 

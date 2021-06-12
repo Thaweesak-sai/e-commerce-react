@@ -13,14 +13,24 @@ const cartSlice = createSlice({
     init() {
       return initialState;
     },
-    getCartProducts: (state) => {
-      state.cartList;
-    },
-    addProductToCart: (
-      state,
-      action: PayloadAction<{ product: StockType }>
-    ) => {
-      state.cartList.push(action.payload.product);
+    // getCartProducts: (state) => {
+    //   state.cartList;
+    // },
+    addProductToCart: (state, action: PayloadAction<StockType>) => {
+      const checkDup = state.cartList.some(
+        (el) => el.product.id == action.payload.product.id
+      );
+
+      console.log('checkd up  = ' + checkDup);
+      if (checkDup) {
+        state.cartList.forEach((stateElem) => {
+          if (stateElem.product.id === action.payload.product.id) {
+            stateElem.quantity += action.payload.quantity;
+          }
+        });
+      } else {
+        state.cartList.push(action.payload);
+      }
     },
     removeProductFromCart: (
       state,
@@ -37,7 +47,7 @@ const cartSlice = createSlice({
 });
 export const {
   init,
-  getCartProducts,
+  //   getCartProducts,
   addProductToCart,
   removeProductFromCart,
   clearCart
