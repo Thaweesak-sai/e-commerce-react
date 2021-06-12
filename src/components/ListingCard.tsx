@@ -1,11 +1,11 @@
 import { EditOutlined, EllipsisOutlined } from '@ant-design/icons';
-import { Card, Col, Row } from 'antd';
+import { Card, Col } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ItemProps } from '../types/ItemProps';
+import { Product } from '../types/Product';
 
-const ListingCard: React.FC<ItemProps> = (props) => {
+const ListingCard: React.FC<Product> = (props) => {
   const { id, itemName, description, imgURL, price } = props;
   const priceToShow = `${price} baht`;
   const subTitle = (

@@ -1,12 +1,13 @@
-export const DUMMY_ITEM_LIST = [
+import { Product } from '../types/Product';
+
+export const DUMMY_ITEM_LIST: Product[] = [
   {
     id: '1',
     itemName: 'Bag',
     description: 'description1',
     imgURL:
       'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
-    price: 500,
-    inventory: 10
+    price: 500
   },
   {
     id: '2',
@@ -14,8 +15,7 @@ export const DUMMY_ITEM_LIST = [
     description: 'description2',
     imgURL:
       'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
-    price: 700,
-    inventory: 10
+    price: 700
   },
   {
     id: '3',
@@ -23,7 +23,6 @@ export const DUMMY_ITEM_LIST = [
     description: 'description3',
     imgURL:
       'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
-    price: 1200,
-    inventory: 10
+    price: 1200
   }
 ];

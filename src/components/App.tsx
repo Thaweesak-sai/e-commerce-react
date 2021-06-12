@@ -6,15 +6,6 @@ import { DUMMY_ITEM_LIST } from '../repository/ItemList';
 import ListingCard from './ListingCard';
 
 const App: React.FC = () => {
-  const gridStyle: CSS.Properties = {
-    width: '25%',
-    textAlign: 'center'
-  };
-
-  const cardStyle: CSS.Properties = {
-    textAlign: 'center'
-  };
-
   const itemList = DUMMY_ITEM_LIST.map((item) => (
     <ListingCard
       key={item.id}

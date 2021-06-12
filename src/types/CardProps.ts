@@ -1,4 +1,4 @@
-import { ItemProps } from "./ItemProps";
+import { Product } from "./Product";
 export interface CardProps {
-  items: ItemProps[];
+  items: Product[];
 }
