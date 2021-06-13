@@ -39,7 +39,7 @@ const Cart: React.FC = () => {
   const cartItemList = cartSelector.map((item) => {
     return (
       <div>
-        <img src={item.product.imgURL} width={300} />
+        <img src={item.product.imgURL} width={300} alt={''} />
         <h1>{item.product.itemName}</h1>
         <h2> quantity : {item.quantity}</h2>
         <h2> total : {item.quantity * item.product.price}</h2>
