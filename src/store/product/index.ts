@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { createWriteStream } from 'fs';
 import { DUMMY_ITEM_LIST } from '../../repository/ItemList';
 import { StockType } from '../../types/Product';
 import { ProductList } from './type';
