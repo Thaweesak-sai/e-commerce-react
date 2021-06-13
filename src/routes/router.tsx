@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from '../components/Layout/Header';
 import CartPage from '../pages/Cart';
-import Home from '../pages/home';
+import HomePage from '../pages/Home';
 import ItemDetailPage from '../pages/ItemDetail';
 
 const Router: React.FC = () => {
@@ -12,7 +12,7 @@ const Router: React.FC = () => {
 
       <Switch>
         <Route path="/" exact={true}>
-          <Home />
+          <HomePage />
         </Route>
 
         <Route path="/product/:itemID">
