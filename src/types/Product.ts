@@ -4,12 +4,10 @@ export interface Product {
   description: string;
   imgURL: string;
   price: number;
+  detail: string;
 }
 
 export type StockType = {
   product: Product;
   quantity: number;
 };
-
-
-

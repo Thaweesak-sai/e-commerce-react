@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createWriteStream } from 'fs';
 import { DUMMY_ITEM_LIST } from '../../repository/ItemList';
 import { StockType } from '../../types/Product';
 import { ProductList } from './type';
@@ -16,13 +17,14 @@ const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    reduceProductQuantity: (
-      state,
-      action: PayloadAction<{ products: StockType[] }>
-    ) => {
-      state.productList = state.productList.filter(
-        (el) => !action.payload.products.includes(el)
-      );
+    reduceProductQuantity: (state, action: PayloadAction<StockType[]>) => {
+      const cartList = action.payload;
+      state.productList.forEach((productItem) => {
+        const match = cartList.find(
+          (cartItem) => productItem.product.id === cartItem.product.id
+        );
+        productItem.quantity -= match?.quantity || 0;
+      });
     }
   }
 });

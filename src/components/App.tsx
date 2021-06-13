@@ -15,7 +15,8 @@ const App: React.FC = () => {
       description={item.product.description}
       imgURL={item.product.imgURL}
       price={item.product.price}
-      quantity = {item.quantity}
+      quantity={item.quantity}
+      detail={item.product.detail}
     ></ListingCard>
   ));
 

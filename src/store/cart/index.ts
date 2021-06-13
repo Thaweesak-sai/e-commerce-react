@@ -13,12 +13,10 @@ const cartSlice = createSlice({
     init() {
       return initialState;
     },
-    // getCartProducts: (state) => {
-    //   state.cartList;
-    // },
+
     addProductToCart: (state, action: PayloadAction<StockType>) => {
       const checkDup = state.cartList.some(
-        (el) => el.product.id == action.payload.product.id
+        (el) => el.product.id === action.payload.product.id
       );
 
       console.log('checkd up  = ' + checkDup);
@@ -32,25 +30,28 @@ const cartSlice = createSlice({
         state.cartList.push(action.payload);
       }
     },
-    removeProductFromCart: (
-      state,
-      action: PayloadAction<{ product: StockType }>
-    ) => {
-      state.cartList = state.cartList.filter(
-        (el) => el.product.id !== action.payload.product.product.id
+    removeProductFromCart: (state, action: PayloadAction<StockType>) => {
+      const checkDup = state.cartList.some(
+        (el) => el.product.id === action.payload.product.id
       );
+      if (checkDup) {
+        state.cartList.forEach((stateElem) => {
+          if (
+            stateElem.product.id === action.payload.product.id &&
+            stateElem.quantity !== 0
+          ) {
+            stateElem.quantity -= action.payload.quantity;
+          }
+        });
+      }
     },
     clearCart: (state) => {
       state.cartList = initialState.cartList;
     }
   }
 });
-export const {
-  init,
-  //   getCartProducts,
-  addProductToCart,
-  removeProductFromCart,
-  clearCart
-} = cartSlice.actions;
+
+export const { init, addProductToCart, removeProductFromCart, clearCart } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
