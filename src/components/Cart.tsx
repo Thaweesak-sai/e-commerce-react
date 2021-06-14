@@ -1,4 +1,5 @@
 import { Button, Card, Modal } from 'antd';
+import Layout, { Content } from 'antd/lib/layout/layout';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -48,13 +49,19 @@ const Cart: React.FC = () => {
   });
 
   return (
-    <div>
-      <Card>
-        {cartItemList}
-        <Button type="primary" onClick={onCheckout}>
+    <div style={{ textAlign: 'center'}}>
+      <Layout>
+        <Content style={{padding :'50px 50px'}}>
+        <Card style={{ padding: '50px 50px' }}>{cartItemList}</Card>
+        <Button
+          style={{ margin: '20px 50px' }}
+          type="primary"
+          onClick={onCheckout}
+        >
           checkout
         </Button>
-      </Card>
+        </Content>
+      </Layout>
     </div>
   );
 };

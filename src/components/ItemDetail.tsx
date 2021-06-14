@@ -1,5 +1,6 @@
 import { MinusCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
-import { Alert, Button, Card, Image } from 'antd';
+import { Alert, Button, Card, Image, Space } from 'antd';
+import Layout, { Content } from 'antd/lib/layout/layout';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Store } from '../store';
@@ -72,49 +73,55 @@ const ItemDetail: React.FC<ItemDetailProps> = (props) => {
 
   return (
     <div>
-      {isOutOfStockErrorDialog && (
-        <Alert
-          message={"Can't buy exceed the stock limit"}
-          closable={true}
-          afterClose={clearFlag}
-          type={'error'}
-          showIcon
-        />
-      )}
+      <Layout>
+        <Content style={{ padding: '50px 50px' }}>
+          <Space direction={'vertical'} size={'small'}>
+            {isOutOfStockErrorDialog && (
+              <Alert
+                message={"Can't buy exceed the stock limit"}
+                closable={true}
+                afterClose={clearFlag}
+                type={'error'}
+                showIcon
+              />
+            )}
 
-      {isWrongQuantityErrorDialog && (
-        <Alert
-          message={'Please select atleast one piece'}
-          closable={true}
-          afterClose={clearFlag}
-          type={'error'}
-          showIcon
-        />
-      )}
-      <Card
-        style={{
-          alignItems: 'center',
-          alignContent: 'center',
-          textAlign: 'center'
-        }}
-        cover={<Image width={500} src={product?.imgURL} />}
-        actions={[
-          <MinusCircleOutlined onClick={onRemoveProductQty} />,
-          <span> Quantity : {quantity}</span>,
-          <PlusCircleOutlined onClick={onIncreaseProductQty} />
-        ]}
-      >
-        <h2>{product?.itemName}</h2>
+            {isWrongQuantityErrorDialog && (
+              <Alert
+                message={'Please select atleast one piece'}
+                closable={true}
+                afterClose={clearFlag}
+                type={'error'}
+                showIcon
+              />
+            )}
+            <Card
+              style={{
+                alignItems: 'center',
+                alignContent: 'center',
+                textAlign: 'center'
+              }}
+              cover={<Image width={500} src={product?.imgURL} />}
+              actions={[
+                <MinusCircleOutlined onClick={onRemoveProductQty} />,
+                <span> Quantity : {quantity}</span>,
+                <PlusCircleOutlined onClick={onIncreaseProductQty} />
+              ]}
+            >
+              <h2>{product?.itemName}</h2>
 
-        <br />
-        {product?.detail}
-        <br />
-        <h3> Stock : {stockQty}</h3>
-        <h4> Price : {product?.price}</h4>
-      </Card>
-      <div style={{ textAlign: 'center' }}>
-        <Button onClick={onAddProductToCart}>Add to cart</Button>
-      </div>
+              <br />
+              {product?.detail}
+              <br />
+              <h3> Stock : {stockQty}</h3>
+              <h4> Price : {product?.price}</h4>
+            </Card>
+            <div style={{ textAlign: 'center' }}>
+              <Button onClick={onAddProductToCart}>Add to cart</Button>
+            </div>
+          </Space>
+        </Content>
+      </Layout>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { Row } from 'antd';
+import Layout, { Content } from 'antd/lib/layout/layout';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import '../App.css';
@@ -22,7 +23,11 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Row gutter={16}>{itemList}</Row>
+      <Layout>
+        <Content style={{ padding: '25px 50px' }}>
+          <Row gutter={16}>{itemList}</Row>
+        </Content>
+      </Layout>
     </div>
   );
 };
